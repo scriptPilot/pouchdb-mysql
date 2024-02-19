@@ -34,6 +34,8 @@ jobs:
         id: npm
         run: echo "available=${{ secrets.NPM_TOKEN != '' }}" >> $GITHUB_OUTPUT
 
+      - run: echo "${{ steps.check-tag.outputs.exists == 'false' && steps.package-version.outputs.tag != 'v0.0.0' }}"
+
   release:
     runs-on: ubuntu-latest
     permissions: write-all
