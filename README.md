@@ -14,7 +14,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     npm create vite
     ```
 
-3. Add a PHP backend (optional, if sync is required):
+3. Add a PHP backend (optional, if synchronization is required):
 
     ```bash
     npx add-php-backend
