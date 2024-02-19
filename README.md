@@ -79,22 +79,28 @@ const collection = db.collection('collection', 'from:table?filter=column,eq,some
 ### Manage documents
 ```js
 // Add a new doc with given $key or automatic UUIDv4 key
-collection.addDoc(docWithOrWithoutKey, (err, addedDoc) => {})
+collection.add(docWithOrWithoutKey, (err, addedDoc) => {})
 
-// Update a doc with given $key
-collection.updateDoc(docWithKey, (err, updatedDoc) => {})
+// Update a doc with given $key, will extend and overwrite existing doc
+collection.update(docWithKey, (err, updatedDoc) => {})
+
+// Replace a doc with given $key
+collection.set(docWithKey, (err, updatedDoc) => {})
 
 // Remove a doc with a given $key
-collection.removeDoc(keyOrDocWithKey, (err) => {})
+collection.remove(keyOrDocWithKey, (err) => {})
 ```
 
 ### List documents
 ```js
-// All documents with $key, updated on any change, returns state if possible
-const state = collection.list((err, docsArray) => {})
+// All documents with $key, callback on any change, returns state for React, Vue and Svelte
+const docArray = collection.list((err, docsArray) => {})
 
 // Like list() but with filter options
-const state = collection.filter({ field: 'value', ... }, (err, docsArray) => {})
+const docArray = collection.filter({ field: 'value', ... }, (err, docsArray) => {})
+
+// Document with given key, {} if not found, callback on any change, returns state for React, Vue and Svelte
+const doc = collection.get(key, (err, doc) => {})
 ```
 
 ### Manage authentication
