@@ -1,12 +1,12 @@
 import _ from 'lodash'
-import collection from './collection'
-import add from './add'
-import update from './update'
-import set from './set'
-import remove from './remove'
-import list from './list'
-import filter from './filter'
-import get from './get'
+import collection from '../lib/collection'
+import add from '../lib/add'
+import update from '../lib/update'
+import set from '../lib/set'
+import remove from '../lib/remove'
+import list from '../lib/list'
+import filter from '../lib/filter'
+import get from '../lib/get'
 
 describe('collection() function', () => {
   test('accepts as first argument string only', () => {

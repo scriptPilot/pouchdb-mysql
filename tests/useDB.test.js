@@ -1,6 +1,6 @@
 import _ from 'lodash'
-import useDB from './useDB'
-import collection from './collection'
+import useDB from '../lib/useDB'
+import collection from '../lib/collection'
 
 describe('useDB() function', () => {
   test('accepts as first argument string or undefined only', () => {

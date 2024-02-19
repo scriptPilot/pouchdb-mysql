@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import list from './list'
+import list from '../lib/list'
 
 describe('list() function', () => {
   test('accepts as last argument array only', () => {
