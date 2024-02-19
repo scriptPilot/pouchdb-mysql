@@ -28,7 +28,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     
 ## SQL Schema
     
-Required columns and key for SQL tables which should be synchronized:
+Required columns and primary key for SQL tables which should be synchronized:
 
 ```sql
 CREATE TABLE `table` (
