@@ -1,2 +1,10 @@
+# Node Modules
 node_modules/
+
+# Jest Tests
+coverage/
+string/
+database/
+
+# System Files
 .DS_Store
