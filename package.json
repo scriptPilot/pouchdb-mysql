@@ -1,0 +1,17 @@
+{
+  "name": "pouchdb-mysql",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "",
+    "preversion": "npm install && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scriptpilot/pouchdb-mysql.git"
+  },
+  "author": "scriptPilot <mail@scriptPilot.de>",
+  "license": "MIT"
+}

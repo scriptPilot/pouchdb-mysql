@@ -14,7 +14,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     npm create vite
     ```
 
-3. Add a PHP backend:
+3. Add a PHP backend (optional, if sync is required):
 
     ```bash
     npx add-php-backend
@@ -117,3 +117,9 @@ db.password(username, password, newPassword, (err) => {})
 // Logout
 db.logout((err) => {})
 ```
+
+## Development (this repository)
+
+- Commit changes with an issue (closure) reference
+- Run `npm version patch | minor | major` and push changes
+- Let the workflow manage the release to GitHub and NPM
