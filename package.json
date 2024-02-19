@@ -2,7 +2,7 @@
   "name": "pouchdb-mysql",
   "version": "0.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "type": "module",
   "scripts": {
     "test": "",
