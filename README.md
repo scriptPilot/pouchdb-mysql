@@ -25,6 +25,16 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     ```bash
     npm install pouchdb-mysql
     ```
+
+5. Create or complete the `vite.config.js` file:
+
+    ```js
+    export default {
+      define: {
+        global: {}
+      }
+    }
+    ```
     
 ## SQL Schema
     

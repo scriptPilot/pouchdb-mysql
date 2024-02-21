@@ -1,5 +1,5 @@
 export default {
   define: {
-    global: "window"
+    global: {}
   }
 }
