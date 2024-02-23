@@ -28,7 +28,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     npm install pouchdb-mysql
     ```
 
-5. Create or complete the `vite.config.js` file:
+5. Create or extend the `vite.config.js` file:
 
     ```js
     export default {
@@ -64,22 +64,11 @@ import useDB from 'pouchdb-mysql'
 ### Initialize a database
 
 ```js
-// Initialize with default "database" name
+// Initialize with default database name "database"
 const db = useDB()
 
 // Initialize with custom database name
-const db = useDB('customDatabase')
-```
-
-### Documents
-
-```js
-const doc = db.doc('doc')
-const doc = db.doc('doc', 'table/doc')
-const doc = db.doc('doc', 'to:table/doc')
-const doc = db.doc('doc', 'from:table/doc')
-doc.set()
-doc.get()
+const db = useDB('customDatabaseName')
 ```
 
 ### Create collections
@@ -108,29 +97,29 @@ const collection = db.collection('collection', 'from:table?filter=column,eq,some
 
 ```js
 // Add a new doc with given $key or automatic UUIDv4 key
-collection.add(docWithOrWithoutKey, (err, addedDoc) => {})
+collection.add(docWithOrWithoutKey, onSuccess(doc), onError(error))
 
 // Update a doc with given $key, will extend and overwrite existing doc
-collection.update(docWithKey, (err, updatedDoc) => {})
+collection.update(docWithKey, onSuccess(doc), onError(error))
 
 // Replace a doc with given $key
-collection.set(docWithKey, (err, updatedDoc) => {})
+collection.set(docWithKey, onSuccess(doc), onError(error))
 
 // Remove a doc with a given $key
-collection.remove(keyOrDocWithKey, (err) => {})
+collection.remove(keyOrDocWithKey, onError(error))
 ```
 
 ### List documents
 
 ```js
-// All documents with $key, callback on any change, returns state for React, Vue and Svelte
-const docArray = collection.list((err, docsArray) => {})
+// List all documents, callback on any change
+const docs = collection.list(onChange(docs), onError(error))
 
 // Like list() but with filter options
-const docArray = collection.filter({ field: 'value', ... }, (err, docsArray) => {})
+const docs = collection.filter({ field: 'value' }, onChange(docs), onError(error))
 
-// Document with given key, {} if not found, callback on any change, returns state for React, Vue and Svelte
-const doc = collection.get(key, (err, doc) => {})
+// Document from a collection, callback on any change
+const doc = collection.get(key, onChange(doc), onError(error))
 ```
 
 ### Manage authentication
@@ -139,19 +128,19 @@ For the API configuration, please refer to the [PHP CRUD API documentation](http
 
 ```js
 // Register a new user
-db.register(username, password, (err, userDetails) => {})
+db.register(username, password, onSuccess(user), onError(error))
 
 // Login an existing user
-db.login(username, password, (err) => {})
+db.login(username, password, onSuccess(user), onError(error))
 
 // Get details for the current user
-db.me((err, userDetails) => {})
+db.me(onSuccess(user), onError(error))
 
 // Change the password
-db.password(username, password, newPassword, (err) => {})
+db.password(username, password, newPassword, onSuccess(), onError(error))
 
 // Logout
-db.logout((err) => {})
+db.logout(onSuccess(), onError(error))
 ```
 
 ## Development (this repository)
