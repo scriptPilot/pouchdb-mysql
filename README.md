@@ -55,19 +55,24 @@ CREATE TABLE `table` (
 
 ## Usage
 
-### Initialize the database
+### Import the module
 
 ```js
-import db from 'pouchdb-mysql'
-or
-import db from 'pouchdb-mysql/react'
-or
-import db from 'pouchdb-mysql/vue'
-or
-import db from 'pouchdb-mysql/svelte'
+import useDB from 'pouchdb-mysql'
+```
+
+### Initialize a database
+
+```js
+// Initialize with default "database" name
+const db = useDB()
+
+// Initialize with custom database name
+const db = useDB('customDatabase')
 ```
 
 ### Create collections
+
 ```js
 // Local only
 const collection = db.collection('collection')
@@ -89,6 +94,7 @@ const collection = db.collection('collection', 'from:table?filter=column,eq,some
 ```
 
 ### Manage documents
+
 ```js
 // Add a new doc with given $key or automatic UUIDv4 key
 collection.add(docWithOrWithoutKey, (err, addedDoc) => {})
@@ -104,6 +110,7 @@ collection.remove(keyOrDocWithKey, (err) => {})
 ```
 
 ### List documents
+
 ```js
 // All documents with $key, callback on any change, returns state for React, Vue and Svelte
 const docArray = collection.list((err, docsArray) => {})
