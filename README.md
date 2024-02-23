@@ -67,6 +67,17 @@ or
 import db from 'pouchdb-mysql/svelte'
 ```
 
+### Documents
+
+```js
+const doc = db.doc('doc')
+const doc = db.doc('doc', 'table/doc')
+const doc = db.doc('doc', 'to:table/doc')
+const doc = db.doc('doc', 'from:table/doc')
+doc.set()
+doc.get()
+```
+
 ### Create collections
 ```js
 // Local only
