@@ -2,8 +2,9 @@
 
 **⚠️ Work in Progress**
 
-- [ ] synchronization
+- [ ] synchronization fromRemote
 - [ ] document.(...)
+- [ ] use internal document for sync log
 - [ ] Typescript
 - [ ] tests
 - [ ] docu
@@ -52,12 +53,10 @@ Required columns and primary key for SQL tables which should be synchronized:
 
 ```sql
 CREATE TABLE `tableName` (
-  `$key` varchar(36) NOT NULL,
+  `$key` varchar(36) NOT NULL PRIMARY KEY,
   `$deleted` int(1) NOT NULL DEFAULT 0,
-  `$updated` int(12) NOT NULL DEFAULT 0,
-  `$sychronized` int(12) NOT NULL DEFAULT 0,
-  ...,
-  PRIMARY KEY (`$key`)
+  `$updated` bigint(14) NOT NULL DEFAULT 0,
+  ...
 );
 ```
 
