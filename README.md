@@ -8,7 +8,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
 
 1. Install [Docker](https://www.docker.com/) and [Node.js](https://nodejs.org/)
 
-2. Create a new [app project](https://github.com/scriptPilot/add-php-backend):
+2. Create a new app project:
 
     ```bash
     npm create vite
@@ -22,7 +22,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     npx add-php-backend
     ```
     
-4. Install the local database:
+4. Install the local database and wrapper:
 
     ```bash
     npm install pouchdb-mysql
