@@ -8,13 +8,13 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
 
 1. Install [Docker](https://www.docker.com/) and [Node.js](https://nodejs.org/)
 
-2. Create a new app project:
+2. Create a new [app project](https://github.com/scriptPilot/add-php-backend):
 
     ```bash
     npm create vite
     ```
 
-3. Add a PHP backend
+3. Add a [PHP backend](https://github.com/scriptPilot/add-php-backend)
 
    Optional, for authentication and synchronization features.
 
