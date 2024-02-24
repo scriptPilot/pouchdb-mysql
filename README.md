@@ -2,7 +2,6 @@
 
 **⚠️ Work in Progress**
 
-- [ ] collection.watch
 - [ ] synchronization
 - [ ] document.(...)
 - [ ] Typescript
@@ -127,14 +126,17 @@ await collection.remove(keyOrDocWithKey)
 // List all documents
 const docs = await collection.list()
 
-// List all documents, including deleted documents
-const docs = await collection.list(true)
+// List all documents
+const docs = await collection.list()
 
-// Like list() but with filter options
-const docs = await collection.filter({ field: 'value' })
+// List all documents, callback initially and on any change
+collection.list(onChangeCallback(docs))
 
-// Like list() but with filter options, including deleted documents
-const docs = await collection.filter({ field: 'value' }, true)
+// List all documents, with callback, include deleted documents
+collection.list(onChangeCallback(docs), true)
+
+// List all documents, no callback, include deleted documents
+const docs = await collection.list(null, true)
 
 // Document from a collection, returns null if not found or deleted
 const doc = await collection.get(key)
