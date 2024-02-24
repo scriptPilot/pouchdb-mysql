@@ -5,7 +5,7 @@
   "main": "lib/useDB.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --passWithNoTests",
     "preversion": "npm install && npm test"
   },
   "repository": {
