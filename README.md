@@ -168,6 +168,8 @@ await db.logout()
 
 ## Development (this repository)
 
+- Apply changes
+- Run demo app with `cd react && npm install && npm run dev`
 - Commit changes with an issue (closure) reference
 - Run `npm version patch | minor | major` and push changes
 - Let the workflow manage the release to GitHub and NPM
