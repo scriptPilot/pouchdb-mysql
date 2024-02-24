@@ -1,7 +1,5 @@
 # PouchDB + MySQL
 
-> ⚠️ Development is ongoing - do not use in production
-
 Local persistent database with optional synchronization to and from MySQL.
 
 Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com/mevdschee/php-crud-api).
@@ -16,7 +14,9 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     npm create vite
     ```
 
-3. Add a PHP backend (optional, if synchronization is required):
+3. Add a PHP backend
+
+   Optional, for authentication and synchronization features.
 
     ```bash
     npx add-php-backend
@@ -43,7 +43,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
 Required columns and primary key for SQL tables which should be synchronized:
 
 ```sql
-CREATE TABLE `table` (
+CREATE TABLE `tableName` (
   `$key` varchar(36) NOT NULL,
   `$deleted` int(1) NOT NULL DEFAULT 0,
   `$updated` int(12) NOT NULL DEFAULT 0,
@@ -64,11 +64,14 @@ import useDB from 'pouchdb-mysql'
 ### Initialize a database
 
 ```js
-// Initialize with default database name "database"
+// Initialize with default database name and API endpoint
 const db = useDB()
 
-// Initialize with custom database name
+// Initialize with custom database name and default API endpoint
 const db = useDB('customDatabaseName')
+
+// Initialize with custom database name and API endpoint
+const db = useDB('customDatabaseName', 'https://example.com/api.php')
 ```
 
 ### Create collections
@@ -97,29 +100,32 @@ const collection = db.collection('collection', 'from:table?filter=column,eq,some
 
 ```js
 // Add a new doc with given $key or automatic UUIDv4 key
-collection.add(docWithOrWithoutKey, onSuccess(doc), onError(error))
+const doc = await collection.add(docWithOrWithoutKey)
 
-// Update a doc with given $key, will extend and overwrite existing doc
-collection.update(docWithKey, onSuccess(doc), onError(error))
-
-// Replace a doc with given $key
-collection.set(docWithKey, onSuccess(doc), onError(error))
+// Update a doc with given $key
+const doc = await collection.update(docWithKey)
 
 // Remove a doc with a given $key
-collection.remove(keyOrDocWithKey, onError(error))
+await collection.remove(keyOrDocWithKey)
 ```
 
 ### List documents
 
 ```js
-// List all documents, callback on any change
-const docs = collection.list(onChange(docs), onError(error))
+// List all documents
+const docs = await collection.list()
+
+// List all documents, including deleted documents
+const docs = await collection.list(true)
 
 // Like list() but with filter options
-const docs = collection.filter({ field: 'value' }, onChange(docs), onError(error))
+const docs = await collection.filter({ field: 'value' })
+
+// Like list() but with filter options, including deleted documents
+const docs = await collection.filter({ field: 'value' }, true)
 
 // Document from a collection, callback on any change
-const doc = collection.get(key, onChange(doc), onError(error))
+const doc = await collection.get(key)
 ```
 
 ### Manage authentication
@@ -127,20 +133,20 @@ const doc = collection.get(key, onChange(doc), onError(error))
 For the API configuration, please refer to the [PHP CRUD API documentation](https://github.com/mevdschee/php-crud-api).
 
 ```js
+// Get details for the current user
+const user = await db.me()
+
 // Register a new user
-db.register(username, password, onSuccess(user), onError(error))
+const user = await db.register(username, password)
 
 // Login an existing user
-db.login(username, password, onSuccess(user), onError(error))
-
-// Get details for the current user
-db.me(onSuccess(user), onError(error))
+const user = await db.login(username, password)
 
 // Change the password
-db.password(username, password, newPassword, onSuccess(), onError(error))
+const user = await db.password(username, password, newPassword)
 
 // Logout
-db.logout(onSuccess(), onError(error))
+await db.logout()
 ```
 
 ## Development (this repository)
