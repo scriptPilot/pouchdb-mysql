@@ -6,7 +6,7 @@ import useDB from 'pouchdb-mysql'
 
     const db = useDB()    
     const tasks = db.collection('tasks', 'tasks')
-    //tasks.add({ title: (new Date()).toISOString() })
+    tasks.add({ title: (new Date()).toISOString() })
     tasks.list(docs => console.log('list', docs))
 
   } catch (err) {
