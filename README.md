@@ -124,8 +124,11 @@ const docs = await collection.filter({ field: 'value' })
 // Like list() but with filter options, including deleted documents
 const docs = await collection.filter({ field: 'value' }, true)
 
-// Document from a collection, callback on any change
+// Document from a collection, returns null if not found or deleted
 const doc = await collection.get(key)
+
+// Document from a collection, returns null if not found
+const doc = await collection.get(key, true)
 ```
 
 ### Manage authentication
