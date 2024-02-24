@@ -1,14 +1,5 @@
 # PouchDB + MySQL
 
-**⚠️ Work in Progress**
-
-- [ ] synchronization fromRemote
-- [ ] document.(...)
-- [ ] use internal document for sync log
-- [ ] Typescript
-- [ ] tests
-- [ ] docu
-
 Local persistent database with optional synchronization to and from MySQL.
 
 Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com/mevdschee/php-crud-api).
@@ -114,7 +105,7 @@ const collection = db.collection('collection', 'from:table?filter=column,eq,some
 const doc = await collection.add(docWithOrWithoutKey)
 
 // Update a doc with given $key
-const doc = await collection.update(docWithKey)
+const doc = await collection.update(key, updates)
 
 // Remove a doc with a given $key
 await collection.remove(keyOrDocWithKey)
