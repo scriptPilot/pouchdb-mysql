@@ -95,6 +95,9 @@ const collection = db.collection('collection', 'table')
 // Local with full sync to and filtered sync from remote
 const collection = db.collection('collection', 'table?filter=column,eq,something')
 
+// Local with full sync to and column filtered sync from remote
+const collection = db.collection('collection', 'table?include=firstColumn,secondColumn')
+
 // Local with full sync to remote
 const collection = db.collection('collection', 'to:table')
 
