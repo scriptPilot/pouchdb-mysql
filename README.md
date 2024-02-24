@@ -22,7 +22,7 @@ Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com
     npx add-php-backend
     ```
     
-4. Install the local database and wrapper:
+4. Install the local database:
 
     ```bash
     npm install pouchdb-mysql
