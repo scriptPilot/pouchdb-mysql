@@ -1,5 +1,12 @@
 # PouchDB + MySQL
 
+**⚠️ Work in Progress**
+
+- [ ] collection.watch
+- [ ] document.(...)
+- [ ] tests
+- [ ] docu
+
 Local persistent database with optional synchronization to and from MySQL.
 
 Powered by [PouchDB](https://pouchdb.com/) and [PHP CRUD API](https://github.com/mevdschee/php-crud-api).
