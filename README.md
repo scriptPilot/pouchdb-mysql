@@ -56,6 +56,7 @@ CREATE TABLE `tableName` (
   `$key` varchar(36) NOT NULL PRIMARY KEY,
   `$deleted` int(1) NOT NULL DEFAULT 0,
   `$updated` bigint(14) NOT NULL DEFAULT 0,
+  `$synchronized` bigint(14) NOT NULL DEFAULT 0,
   ...
 );
 ```
