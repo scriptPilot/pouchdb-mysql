@@ -3,7 +3,9 @@
 **⚠️ Work in Progress**
 
 - [ ] collection.watch
+- [ ] synchronization
 - [ ] document.(...)
+- [ ] Typescript
 - [ ] tests
 - [ ] docu
 
